@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Implementation-Title: DoctorApp
+Implementation-Version: 0.0.1-SNAPSHOT
+Built-By: payal
+Implementation-Vendor-Id: com.springboot.starter
+Build-Jdk: 1.8.0_191
+Implementation-URL: https://projects.spring.io/spring-boot/#/spring-bo
+ ot-starter-parent/DoctorApp
+Created-By: Maven Integration for Eclipse
+
