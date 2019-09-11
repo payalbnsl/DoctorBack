@@ -7,7 +7,7 @@ import com.springboot.service.AddressSerializer;
 
 import lombok.Data;
 
-//serialzier: java-> json/xml
+//serializer: java-> json/xml
 @Embeddable
 @Data
 @JsonSerialize(using=AddressSerializer.class)

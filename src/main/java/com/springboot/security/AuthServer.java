@@ -54,7 +54,7 @@ public class AuthServer extends AuthorizationServerConfigurerAdapter {
 			HttpServletRequest req = (HttpServletRequest) request;
 			HttpServletResponse resp = (HttpServletResponse) response;
 			resp.addHeader("Access-Control-Allow-Origin", "http://localhost:4200");
-			resp.addHeader("Access-Control-Allow-Methods", "POST, GET, OPTIONS, DELETE");
+			resp.addHeader("Access-Control-Allow-Methods", "POST, PUT,GET, OPTIONS, DELETE");
 			resp.addHeader("Access-Control-Max-Age", "3600");
 			resp.addHeader("Access-Control-Allow-Headers", "Authorization, Content-Type");
 			//allow headers to be sent to the server

@@ -27,6 +27,9 @@ import org.springframework.web.bind.annotation.RestController;
 import com.springboot.model.Doctor;
 import com.springboot.service.DoctorService;
 
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
+
 @RestController
 @RequestMapping("/doctors")
 public class DoctorController {
@@ -45,9 +48,9 @@ public class DoctorController {
 	 * System.err.println("password does not match"); } else { return doc; } return
 	 * null; }
 	 */
-	@PutMapping(path = "/{id}", consumes = { MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE })
+	@PutMapping(path = "/{id}", consumes = { "application/json", MediaType.APPLICATION_XML_VALUE })
 	@ResponseStatus(code = HttpStatus.OK)
-	public void update(@RequestBody Doctor d, @PathVariable int id) {
+	public void update(@RequestBody Doctor d,  @PathVariable int id) {
 		d.setDoctorId(id);
 		service.updateDoctor(d);
 
@@ -95,6 +98,7 @@ public class DoctorController {
 		return ResponseEntity.ok(doctors);
 	}
 
+	@ApiOperation(value="To fetch doctors page by page")
 	@GetMapping(produces = { MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE })
 	public ResponseEntity<List<Doctor>> getDoctors(@RequestParam(defaultValue = "0") int page,
 			@RequestParam(defaultValue = "20") int limit) {

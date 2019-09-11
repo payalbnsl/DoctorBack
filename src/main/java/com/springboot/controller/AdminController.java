@@ -3,6 +3,8 @@ package com.springboot.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -20,7 +22,13 @@ import com.springboot.service.AppointmentService;
 import com.springboot.service.DoctorService;
 import com.springboot.service.LeaveService;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import springfox.documentation.annotations.ApiIgnore;
+
 @RestController
+//@CrossOrigin(allowedHeaders="*", origins="http://localhost:9000")
+@Api(description="This api can be used only by admin to add/update doctor related details ")
 public class AdminController {
 	
 	
@@ -36,6 +44,7 @@ public class AdminController {
 	
 	
 	@PostMapping("/admin/login")
+	@ApiIgnore
 	public Admin doctorLogin(@RequestBody Admin a) {
 
 		System.err.println("admin login ");
@@ -52,6 +61,7 @@ public class AdminController {
 	}
 	
 	@GetMapping("/admin/doctors")
+	@ApiOperation(value="fetch doctors",produces= MediaType.APPLICATION_JSON_VALUE )
 	public List<Doctor> getDoctors(){
 		System.err.println("admin doctors");
 		return dService.getDoctors();
