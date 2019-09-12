@@ -1,6 +1,7 @@
 package com.springboot.model;
 
 import java.time.LocalDate;
+import java.time.LocalTime;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -22,7 +23,7 @@ public class Appointment {
 	@NotNull
 	private LocalDate date;
 	@NotNull
-	private String time;
+	private LocalTime time;
 	
 	@NotNull
 	private int doctorid;
